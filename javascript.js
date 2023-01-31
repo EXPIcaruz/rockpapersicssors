@@ -6,11 +6,29 @@
 
 // set varibles for choice 
 
+function computerPlay() {
+    const pick = ['rock', 'paper', 'scissors'];
+    return pick[Math.floor(Math.random() * pick.length)];
+ }
+ 
 
-const choice = [ 'rock', 'paper', 'scissors' ];
-const compPlay = Math.floor(Math.random() * choice.length);
+function playRound(playerSelection, computerSelection) {
+    if (playerSelection === computerSelection) {
+       return `It's a tie!`;
+    } else if (playerSelection === "rock" && computerSelection === "scissors") {
+       return "You win! Rock beats Scissors";
+    } else if (playerSelection === "paper" && computerSelection === "rock") {
+       return "You win! Paper beats Rock";
+    } else if (playerSelection === "scissors" && computerSelection === "paper") {
+       return "You win! Scissors beats Paper";
+    } else {
+       return `You lose! ${computerSelection} beats ${playerSelection}`;
+    }
+ }
 
-console.log(choice[compPlay]);
+ const playerSelection = prompt("Start the game by picking among 'Rock, Paper, Scissors'").toLowerCase();
+ const computerSelection = computerPlay();
+ console.log(playRound(playerSelection, computerSelection))
 
 
 
@@ -19,6 +37,7 @@ console.log(choice[compPlay]);
 
 
 // set function for computer to randomy choose
+
 // set function for single round where 
 // set loop for multiple rounds 
 // set user input system 
